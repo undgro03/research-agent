@@ -1,13 +1,13 @@
-# Daily Digest
+# 日次ダイジェスト
 
-Run the Embodied AI Radar daily digest.
+Embodied AI Radar の日次ダイジェストを実行します。
 
-Executes the full Monitor → Analyst → Writer → Archivist pipeline for today.
-Generates 6 report formats + sub-theme articles.
+Monitor → Analyst → Writer → Archivist のパイプラインを今日の日付で実行。
+6形式レポート + 日次サブテーマ記事を生成します。
 
 ```bash
 python scripts/run_daily.py $ARGUMENTS
 ```
 
-If `$ARGUMENTS` contains a theme slug (e.g., `vla-models`), run for that theme.
-Otherwise, run for `embodied-ai-overview`.
+引数にテーマスラッグを指定した場合（例: `vla-models`）はそのテーマで実行。
+指定なしの場合は `embodied-ai-overview` で実行。

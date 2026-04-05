@@ -1,23 +1,23 @@
-# Deep Dive
+# ディープダイブ
 
-Run a focused research deep-dive on a specific Embodied AI theme.
+特定のEmbodied AIテーマに絞った深掘りリサーチを実行します。
 
-## Usage
+## 使い方
 ```
-/deep-dive <theme-slug>
+/deep-dive <テーマスラッグ>
 ```
 
-## Available Themes
+## 利用可能なテーマ
 - `embodied-ai-overview` — Embodied AI全体
 - `world-action-models` — World Models × Action
-- `vlm-robotics` — VLM × Robot Control
-- `action-video-generation` — Action Conditioned Video Generation
+- `vlm-robotics` — VLM × ロボット制御
+- `action-video-generation` — Action Conditioned 動画生成
 
-## What this does
-1. Loads theme profile from `themes/<slug>.yaml`
-2. Runs extended search (wider lookback, more keywords)
-3. Maps the full research landscape for the theme
-4. Generates expert-level 6-format reports + comprehensive articles
+## 実行内容
+1. `themes/<slug>.yaml` からテーマプロファイルを読み込み
+2. 拡張ルックバック期間での広範囲検索
+3. テーマの研究ランドスケープを全体マッピング
+4. エキスパートレベルの6形式レポート + 詳細記事を生成
 
 ```bash
 python scripts/run_deep_dive.py --theme $ARGUMENTS
