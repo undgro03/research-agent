@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "arxiv": {
+      "command": "uvx",
+      "args": ["mcp-server-arxiv"],
+      "description": "arXiv paper search and retrieval"
+    },
+    "semantic_scholar": {
+      "command": "uvx",
+      "args": ["mcp-server-semantic-scholar"],
+      "env": {
+        "SEMANTIC_SCHOLAR_API_KEY": "${SEMANTIC_SCHOLAR_API_KEY}"
+      },
+      "description": "Citation counts, paper metadata, author profiles"
+    },
+    "brave_search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      },
+      "description": "Web search for lab blogs and news not on arXiv"
+    },
+    "sqlite": {
+      "command": "uvx",
+      "args": ["mcp-server-sqlite", "--db-path", "data/radar.db"],
+      "description": "Direct SQLite queries against radar.db"
+    }
+  }
+}

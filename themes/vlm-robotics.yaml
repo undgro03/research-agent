@@ -1,0 +1,103 @@
+extends: _base
+
+name: "VLM × Robotics"
+slug: "vlm-robotics"
+description: >
+  Vision-Language Models applied to robotics control and planning.
+  Covers VLA (Vision-Language-Action), language-conditioned policies,
+  RT-2, OpenVLA, pi0, Octo, and grounding for robot action.
+
+sources:
+  arxiv:
+    categories:
+      - "cs.RO"
+      - "cs.CV"
+      - "cs.CL"
+      - "cs.LG"
+    keywords:
+      - "vision language action"
+      - "VLA model"
+      - "vision language robot"
+      - "language conditioned robot"
+      - "robot foundation model"
+      - "generalist robot policy"
+      - "RT-2"
+      - "OpenVLA"
+      - "pi0"
+      - "Octo"
+      - "SayCan"
+      - "PaLM-E"
+      - "language grounding robot"
+      - "multimodal robot policy"
+      - "instruction following robot"
+      - "CLIP robot"
+      - "RoboCat"
+      - "RoboFlamingo"
+      - "GR-1"
+      - "RoboVLMs"
+    max_results: 80
+    lookback_days: 3
+
+  twitter:
+    keywords:
+      - "VLA model"
+      - "vision language action"
+      - "robot foundation model"
+      - "language conditioned robot"
+      - "OpenVLA"
+      - "pi0 robot"
+    accounts_to_track:
+      - "svlevine"
+      - "chelseabfinn"
+      - "pabbeel"
+      - "karol_hausman"
+      - "GoogleDeepMind"
+      - "physical_intlgn"
+
+researchers:
+  focus:
+    - "Sergey Levine"
+    - "Chelsea Finn"
+    - "Pieter Abbeel"
+    - "Karol Hausman"
+    - "Ted Xiao"
+    - "Danny Driess"
+    - "Moo Jin Kim"
+    - "Octo Authors"
+
+labs:
+  - name: "Physical Intelligence"
+    links:
+      website: "https://www.physicalintelligence.company"
+      blog: "https://www.physicalintelligence.company/blog"
+  - name: "Google DeepMind"
+    links:
+      blog: "https://deepmind.google/discover/blog/"
+  - name: "UC Berkeley RAIL"
+    links:
+      website: "https://rail.eecs.berkeley.edu"
+  - name: "Stanford IRIS"
+    links:
+      website: "https://irislab.stanford.edu"
+  - name: "Hugging Face LeRobot"
+    links:
+      website: "https://huggingface.co/lerobot"
+      blog: "https://huggingface.co/blog"
+
+technical_depth: expert
+
+report_sections:
+  - executive_summary
+  - key_papers
+  - model_comparison_table
+  - architectural_trends
+  - benchmark_progress
+  - dataset_landscape
+  - notable_researchers
+  - open_problems
+  - weekly_delta
+
+alert_thresholds:
+  citation_velocity: 10
+  twitter_engagement: 200
+  lab_paper: true

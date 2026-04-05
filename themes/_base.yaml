@@ -1,0 +1,222 @@
+# Base theme profile — inherited by all themes
+version: "1"
+
+sources:
+  arxiv:
+    enabled: true
+    max_results: 50
+    categories:
+      - "cs.RO"   # Robotics
+      - "cs.AI"   # Artificial Intelligence
+      - "cs.LG"   # Machine Learning
+      - "cs.CV"   # Computer Vision
+    lookback_days: 1
+
+  twitter:
+    enabled: true
+    max_results: 100
+    lookback_hours: 24
+
+  semantic_scholar:
+    enabled: true
+    min_citation_count: 0
+
+  rss_feeds:
+    enabled: true
+
+  web_search:
+    enabled: true
+
+# Default watched labs and companies (with source links)
+labs:
+  - name: "Physical Intelligence (π)"
+    links:
+      website: "https://www.physicalintelligence.company"
+      blog: "https://www.physicalintelligence.company/blog"
+      arxiv_author: "pi_lab"
+      twitter: "https://twitter.com/physical_intlgn"
+
+  - name: "Google DeepMind Robotics"
+    links:
+      website: "https://deepmind.google/research/robotics/"
+      blog: "https://deepmind.google/discover/blog/"
+      arxiv_search: "https://arxiv.org/search/?searchtype=author&query=deepmind+robotics"
+      twitter: "https://twitter.com/GoogleDeepMind"
+
+  - name: "Google Robotics"
+    links:
+      blog: "https://blog.research.google/search/label/Robotics"
+      twitter: "https://twitter.com/GoogleAI"
+
+  - name: "NVIDIA Isaac / GEAR"
+    links:
+      website: "https://developer.nvidia.com/isaac"
+      blog: "https://developer.nvidia.com/blog/category/robotics/"
+      arxiv_search: "https://arxiv.org/search/?query=nvidia+robotics"
+      twitter: "https://twitter.com/NVIDIAAIDev"
+
+  - name: "UC Berkeley RAIL Lab (Sergey Levine)"
+    links:
+      website: "https://rail.eecs.berkeley.edu"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Levine+S"
+      twitter: "https://twitter.com/svlevine"
+
+  - name: "UC Berkeley RobotLearning (Pieter Abbeel)"
+    links:
+      website: "https://robotlearning.cs.berkeley.edu"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Abbeel+P"
+      twitter: "https://twitter.com/pabbeel"
+
+  - name: "Stanford IRIS Lab (Chelsea Finn)"
+    links:
+      website: "https://irislab.stanford.edu"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Finn+C"
+      twitter: "https://twitter.com/chelseabfinn"
+
+  - name: "CMU Robotics Institute"
+    links:
+      website: "https://www.ri.cmu.edu"
+      blog: "https://www.ri.cmu.edu/publications/"
+      arxiv_search: "https://arxiv.org/search/?query=cmu+robotics"
+
+  - name: "MIT CSAIL"
+    links:
+      website: "https://www.csail.mit.edu"
+      news: "https://www.csail.mit.edu/news"
+      arxiv_search: "https://arxiv.org/search/?query=mit+csail+robotics"
+
+  - name: "Meta FAIR (Yann LeCun)"
+    links:
+      website: "https://ai.meta.com/research/"
+      blog: "https://ai.meta.com/blog/"
+      arxiv_search: "https://arxiv.org/search/?query=meta+ai+robotics"
+      twitter: "https://twitter.com/ylecun"
+
+  - name: "Harvard Computational Robotics (Yilun Du)"
+    links:
+      website: "https://yilundu.github.io"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Du+Yilun"
+      twitter: "https://twitter.com/yilun_du"
+
+  - name: "Figure AI"
+    links:
+      website: "https://www.figure.ai"
+      blog: "https://www.figure.ai/news"
+      twitter: "https://twitter.com/Figure_robot"
+      youtube: "https://www.youtube.com/@figureai"
+
+  - name: "1X Technologies"
+    links:
+      website: "https://www.1x.tech"
+      blog: "https://www.1x.tech/blog"
+      twitter: "https://twitter.com/1x_tech"
+
+  - name: "Unitree Robotics"
+    links:
+      website: "https://www.unitree.com"
+      twitter: "https://twitter.com/UnitreeRobotics"
+      youtube: "https://www.youtube.com/@unitreerobotics"
+
+  - name: "Boston Dynamics"
+    links:
+      website: "https://bostondynamics.com"
+      blog: "https://bostondynamics.com/blog/"
+      twitter: "https://twitter.com/BostonDynamics"
+      youtube: "https://www.youtube.com/@BostonDynamics"
+
+  - name: "Agility Robotics"
+    links:
+      website: "https://agilityrobotics.com"
+      blog: "https://agilityrobotics.com/news"
+      twitter: "https://twitter.com/AgilityRobotics"
+
+  - name: "Tesla Optimus"
+    links:
+      twitter: "https://twitter.com/Tesla"
+      youtube: "https://www.youtube.com/@Tesla"
+
+  - name: "Hugging Face Robotics"
+    links:
+      website: "https://huggingface.co/lerobot"
+      blog: "https://huggingface.co/blog"
+      twitter: "https://twitter.com/huggingface"
+
+  - name: "NYU CILVR (Lerrel Pinto)"
+    links:
+      website: "https://wp.nyu.edu/cilvr/"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Pinto+L"
+      twitter: "https://twitter.com/lerrel_pinto"
+
+  - name: "CMU Deepak Pathak Lab"
+    links:
+      website: "https://www.cs.cmu.edu/~dpathak/"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Pathak+D"
+      twitter: "https://twitter.com/pathak2206"
+
+  - name: "Karol Hausman (Google DeepMind)"
+    links:
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Hausman+K"
+      twitter: "https://twitter.com/karol_hausman"
+
+  - name: "Danny Driess (Google DeepMind)"
+    links:
+      website: "https://dannydriess.github.io"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Driess+D"
+
+  - name: "Koushil Sreenath Lab (Berkeley)"
+    links:
+      website: "https://hybrid-robotics.berkeley.edu"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Sreenath+K"
+
+  - name: "Aaron Ames (Caltech AMBER)"
+    links:
+      website: "http://www.bipedalrobotics.com"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Ames+A"
+
+  - name: "Generalist AI / Covariant"
+    links:
+      website: "https://covariant.ai"
+      blog: "https://covariant.ai/insights/"
+      twitter: "https://twitter.com/CovariantAI"
+
+# Default Twitter accounts to track
+twitter_accounts:
+  - "svlevine"           # Sergey Levine
+  - "pabbeel"            # Pieter Abbeel
+  - "chelseabfinn"       # Chelsea Finn
+  - "yilun_du"           # Yilun Du
+  - "ylecun"             # Yann LeCun
+  - "karol_hausman"      # Karol Hausman
+  - "pathak2206"         # Deepak Pathak
+  - "lerrel_pinto"       # Lerrel Pinto
+  - "GoogleDeepMind"
+  - "Figure_robot"
+  - "1x_tech"
+  - "BostonDynamics"
+  - "UnitreeRobotics"
+  - "AgilityRobotics"
+  - "huggingface"
+  - "NVIDIAAIDev"
+
+technical_depth: medium     # low | medium | high | expert
+report_format: structured   # structured | executive | technical
+
+mcp_servers:
+  - arxiv
+  - semantic_scholar
+  - brave_search
+  - sqlite
+
+alert_thresholds:
+  citation_velocity: 20     # citations/day
+  twitter_engagement: 500   # likes + retweets
+  lab_paper: true           # always alert for watched labs
+
+report_sections:
+  - executive_summary
+  - key_papers
+  - trending_topics
+  - lab_updates
+  - notable_researchers
+  - open_problems
+  - weekly_delta

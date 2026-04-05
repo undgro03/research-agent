@@ -1,0 +1,88 @@
+extends: _base
+
+name: "Action Conditioned Video Generation"
+slug: "action-video-generation"
+description: >
+  Video generation models conditioned on actions, for robot learning,
+  world model training, and data augmentation. Covers action-conditioned
+  diffusion models, video prediction for planning, and video as robot policy.
+
+sources:
+  arxiv:
+    categories:
+      - "cs.CV"
+      - "cs.RO"
+      - "cs.LG"
+    keywords:
+      - "action conditioned video generation"
+      - "action conditioned video prediction"
+      - "video generation robot"
+      - "video world model"
+      - "robot video prediction"
+      - "diffusion video robot"
+      - "video as policy"
+      - "video generation planning"
+      - "generative video model robot"
+      - "action video diffusion"
+      - "UniSim"
+      - "IRASim"
+      - "RoboDreamer"
+      - "SuSIE"
+      - "video pretraining robot"
+      - "future frame prediction robot"
+    max_results: 60
+    lookback_days: 3
+
+  twitter:
+    keywords:
+      - "action conditioned video"
+      - "video generation robot"
+      - "video world model robot"
+      - "robot video prediction"
+    accounts_to_track:
+      - "yilun_du"
+      - "svlevine"
+      - "chelseabfinn"
+      - "GoogleDeepMind"
+      - "pabbeel"
+
+researchers:
+  focus:
+    - "Yilun Du"
+    - "Sergey Levine"
+    - "Chelsea Finn"
+    - "Danijar Hafner"
+    - "Tim Brooks"
+    - "Sora team"
+
+labs:
+  - name: "Harvard (Yilun Du)"
+    links:
+      website: "https://yilundu.github.io"
+  - name: "UC Berkeley RAIL"
+    links:
+      website: "https://rail.eecs.berkeley.edu"
+  - name: "Google DeepMind"
+    links:
+      blog: "https://deepmind.google/discover/blog/"
+  - name: "OpenAI (Sora)"
+    links:
+      website: "https://openai.com/sora"
+      blog: "https://openai.com/blog"
+
+technical_depth: expert
+
+report_sections:
+  - executive_summary
+  - key_papers
+  - generation_method_taxonomy
+  - application_to_robot_learning
+  - dataset_and_benchmark
+  - architectural_trends
+  - open_problems
+  - weekly_delta
+
+alert_thresholds:
+  citation_velocity: 10
+  twitter_engagement: 300
+  lab_paper: true

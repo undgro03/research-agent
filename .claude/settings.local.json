@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/undgro03/.claude/**)",
+      "WebSearch",
+      "Skill(schedule)"
+    ]
+  }
+}

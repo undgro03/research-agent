@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="{{ lang | default('ja') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} — Embodied AI Radar</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    /* ── Design tokens ── */
+    :root {
+      --bg:          #0f1117;
+      --surface:     #1a1d27;
+      --surface2:    #242736;
+      --border:      #2e3248;
+      --accent:      #6c8ef5;
+      --accent2:     #a78bfa;
+      --green:       #34d399;
+      --yellow:      #fbbf24;
+      --red:         #f87171;
+      --text:        #e2e8f0;
+      --text-muted:  #94a3b8;
+      --text-dim:    #64748b;
+      --font-sans:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
+      --radius:      8px;
+      --radius-lg:   14px;
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; color: var(--accent2); }
+
+    /* ── Header ── */
+    .radar-header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 60%, #1a1228 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 48px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .radar-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .radar-logo-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .radar-logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+    .radar-logo-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .radar-meta {
+      text-align: right;
+    }
+    .radar-meta .date {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .radar-meta .report-type {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .main-content { padding: 40px 0; }
+
+    /* ── Section ── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 28px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      font-size: 20px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* ── Executive Summary ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .summary-stat {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .summary-stat .value {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .summary-stat .label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .summary-bullets {
+      list-style: none;
+    }
+    .summary-bullets li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      padding-left: 20px;
+      position: relative;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .summary-bullets li::before {
+      content: "▶";
+      color: var(--accent);
+      font-size: 10px;
+      position: absolute;
+      left: 0;
+      top: 10px;
+    }
+    .summary-bullets li:last-child { border-bottom: none; }
+
+    /* ── Paper Cards ── */
+    .paper-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .paper-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 40px 1fr auto;
+      gap: 12px;
+      align-items: start;
+      transition: border-color 0.15s;
+    }
+    .paper-card:hover { border-color: var(--accent); }
+    .paper-rank {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: white;
+      flex-shrink: 0;
+    }
+    .paper-rank.alert { background: var(--red); }
+    .paper-info {}
+    .paper-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .paper-title a { color: var(--text); }
+    .paper-title a:hover { color: var(--accent); }
+    .paper-authors {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .paper-abstract {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+    .paper-score {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .score-badge {
+      background: var(--accent);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+    .score-badge.high { background: var(--green); }
+    .score-badge.medium { background: var(--yellow); color: #000; }
+    .score-badge.low { background: var(--text-dim); }
+    .paper-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    /* ── Trend Section ── */
+    .trend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .trend-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    .trend-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .trend-strength {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .trend-strength.hot { background: var(--red); color: white; }
+    .trend-strength.emerging { background: var(--yellow); color: #000; }
+    .trend-strength.stable { background: var(--surface); color: var(--text-muted); }
+    .trend-desc {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .trend-count {
+      font-size: 12px;
+      color: var(--accent);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* ── Mermaid Diagrams ── */
+    .diagram-container {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+    .diagram-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .mermaid {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ── Alert Banner ── */
+    .alert-banner {
+      background: linear-gradient(90deg, rgba(248,113,113,0.1), transparent);
+      border-left: 3px solid var(--red);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .alert-icon { font-size: 18px; }
+    .alert-text { font-size: 13px; color: var(--text); }
+
+    /* ── Lab Updates ── */
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .lab-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .lab-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .lab-update {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .lab-link {
+      font-size: 11px;
+      color: var(--accent);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── Bilingual Layout ── */
+    .bilingual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .lang-col {}
+    .lang-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 768px) {
+      .bilingual-grid { grid-template-columns: 1fr; }
+      .radar-header { padding: 20px 24px; }
+      .container { padding: 0 16px; }
+      .section { padding: 20px; }
+    }
+
+    /* ── Footer ── */
+    .radar-footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-links a { color: var(--text-dim); margin-left: 16px; }
+    .footer-links a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="radar-header">
+    <div class="radar-logo">
+      <div class="radar-logo-icon">🤖</div>
+      <div class="radar-logo-text">
+        <h1>Embodied AI Radar</h1>
+        <p>Robotics × AI Research Intelligence</p>
+      </div>
+    </div>
+    <div class="radar-meta">
+      <div class="date">{{ date }}</div>
+      <div class="report-type">{{ report_type }}</div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="main-content">
+      {{ content }}
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="radar-footer">
+    <span>Generated by Embodied AI Radar · Powered by Claude</span>
+    <div class="footer-links">
+      <a href="../report_ja.html">日本語</a>
+      <a href="../report_en.html">English</a>
+      <a href="../report_bilingual.html">Bilingual</a>
+    </div>
+  </footer>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#6c8ef5',
+        primaryTextColor: '#e2e8f0',
+        primaryBorderColor: '#2e3248',
+        lineColor: '#6c8ef5',
+        secondaryColor: '#242736',
+        tertiaryColor: '#1a1d27',
+        background: '#0f1117',
+        mainBkg: '#1a1d27',
+        nodeBorder: '#2e3248',
+        clusterBkg: '#242736',
+        titleColor: '#e2e8f0',
+        edgeLabelBackground: '#242736',
+      }
+    });
+  </script>
+</body>
+</html>

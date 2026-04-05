@@ -1,0 +1,73 @@
+extends: _base
+
+name: "Embodied AI Overview"
+slug: "embodied-ai-overview"
+description: >
+  Comprehensive monitoring of the Embodied AI and Robotics field.
+  Covers foundation models for robotics, manipulation, locomotion,
+  sim-to-real, and all major research directions.
+
+sources:
+  arxiv:
+    categories:
+      - "cs.RO"
+      - "cs.AI"
+      - "cs.LG"
+      - "cs.CV"
+      - "cs.CL"
+    keywords:
+      - "embodied AI"
+      - "embodied agent"
+      - "robot learning"
+      - "robot foundation model"
+      - "vision language action"
+      - "VLA"
+      - "world model robot"
+      - "dexterous manipulation"
+      - "sim-to-real"
+      - "reinforcement learning robotics"
+      - "imitation learning robot"
+      - "diffusion policy"
+      - "whole body control"
+      - "humanoid robot"
+      - "bipedal locomotion"
+      - "loco-manipulation"
+      - "generalist robot policy"
+    max_results: 80
+    lookback_days: 1
+
+  twitter:
+    keywords:
+      - "embodied AI"
+      - "robot learning"
+      - "robot foundation model"
+      - "humanoid robot"
+      - "manipulation robot"
+      - "diffusion policy"
+    lookback_hours: 24
+    max_results: 150
+
+technical_depth: high
+
+report_sections:
+  - executive_summary
+  - key_papers
+  - trending_topics
+  - lab_updates
+  - breakthrough_analysis
+  - benchmark_progress
+  - venture_updates
+  - notable_researchers
+  - sub_theme_articles
+  - open_problems
+  - weekly_delta
+
+alert_thresholds:
+  citation_velocity: 15
+  twitter_engagement: 300
+  lab_paper: true
+
+sub_themes:
+  - "world-action-models"
+  - "vlm-robotics"
+  - "action-video-generation"

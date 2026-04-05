@@ -1,0 +1,195 @@
+# Lab RSS Feeds, Blog URLs, and Source Registry
+# Used by Monitor agent for daily collection
+
+rss_feeds:
+  # Research Labs
+  - name: "Google AI Blog"
+    url: "https://blog.research.google/feeds/posts/default"
+    tags: ["google", "research"]
+
+  - name: "Google DeepMind Blog"
+    url: "https://deepmind.google/blog/rss.xml"
+    tags: ["deepmind", "research"]
+
+  - name: "Meta AI Research"
+    url: "https://ai.meta.com/blog/rss/"
+    tags: ["meta", "fair"]
+
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    tags: ["openai"]
+
+  - name: "Hugging Face Blog"
+    url: "https://huggingface.co/blog/feed.xml"
+    tags: ["huggingface", "lerobot"]
+
+  - name: "NVIDIA Developer Blog - Robotics"
+    url: "https://developer.nvidia.com/blog/category/robotics/feed/"
+    tags: ["nvidia", "isaac"]
+
+  - name: "Berkeley AI Research Blog"
+    url: "https://bair.berkeley.edu/blog/feed.xml"
+    tags: ["berkeley", "bair"]
+
+  - name: "CMU ML Blog"
+    url: "https://blog.ml.cmu.edu/feed/"
+    tags: ["cmu"]
+
+  - name: "MIT News - CSAIL"
+    url: "https://news.mit.edu/rss/topic/csail-research-highlights"
+    tags: ["mit", "csail"]
+
+  # Companies / Ventures
+  - name: "Boston Dynamics Blog"
+    url: "https://bostondynamics.com/blog/feed/"
+    tags: ["boston-dynamics"]
+
+  - name: "Physical Intelligence Blog"
+    url: "https://www.physicalintelligence.company/blog/rss"
+    tags: ["pi", "physical-intelligence"]
+
+  - name: "Figure AI News"
+    url: "https://www.figure.ai/news/rss"
+    tags: ["figure-ai"]
+
+  - name: "1X Technologies Blog"
+    url: "https://www.1x.tech/blog/rss"
+    tags: ["1x"]
+
+  - name: "Covariant (Generalist AI) Blog"
+    url: "https://covariant.ai/insights/feed/"
+    tags: ["covariant", "generalist"]
+
+  - name: "Agility Robotics News"
+    url: "https://agilityrobotics.com/news/rss"
+    tags: ["agility"]
+
+# arXiv categories to monitor
+arxiv_categories:
+  - id: "cs.RO"
+    name: "Robotics"
+    url: "https://arxiv.org/list/cs.RO/recent"
+    rss: "https://rss.arxiv.org/rss/cs.RO"
+
+  - id: "cs.AI"
+    name: "Artificial Intelligence"
+    url: "https://arxiv.org/list/cs.AI/recent"
+    rss: "https://rss.arxiv.org/rss/cs.AI"
+
+  - id: "cs.LG"
+    name: "Machine Learning"
+    url: "https://arxiv.org/list/cs.LG/recent"
+    rss: "https://rss.arxiv.org/rss/cs.LG"
+
+  - id: "cs.CV"
+    name: "Computer Vision"
+    url: "https://arxiv.org/list/cs.CV/recent"
+    rss: "https://rss.arxiv.org/rss/cs.CV"
+
+  - id: "cs.CL"
+    name: "Computation and Language"
+    url: "https://arxiv.org/list/cs.CL/recent"
+    rss: "https://rss.arxiv.org/rss/cs.CL"
+
+# Twitter / X accounts to monitor
+twitter_accounts:
+  researchers:
+    - handle: "svlevine"
+      name: "Sergey Levine"
+      affiliation: "UC Berkeley RAIL"
+      profile: "https://twitter.com/svlevine"
+
+    - handle: "pabbeel"
+      name: "Pieter Abbeel"
+      affiliation: "UC Berkeley"
+      profile: "https://twitter.com/pabbeel"
+
+    - handle: "chelseabfinn"
+      name: "Chelsea Finn"
+      affiliation: "Stanford IRIS"
+      profile: "https://twitter.com/chelseabfinn"
+
+    - handle: "yilun_du"
+      name: "Yilun Du"
+      affiliation: "Harvard"
+      profile: "https://twitter.com/yilun_du"
+
+    - handle: "ylecun"
+      name: "Yann LeCun"
+      affiliation: "Meta FAIR / NYU"
+      profile: "https://twitter.com/ylecun"
+
+    - handle: "karol_hausman"
+      name: "Karol Hausman"
+      affiliation: "Google DeepMind"
+      profile: "https://twitter.com/karol_hausman"
+
+    - handle: "pathak2206"
+      name: "Deepak Pathak"
+      affiliation: "CMU"
+      profile: "https://twitter.com/pathak2206"
+
+    - handle: "lerrel_pinto"
+      name: "Lerrel Pinto"
+      affiliation: "NYU CILVR"
+      profile: "https://twitter.com/lerrel_pinto"
+
+    - handle: "hausman_k"
+      name: "Karol Hausman"
+      affiliation: "Google DeepMind"
+      profile: "https://twitter.com/hausman_k"
+
+  organizations:
+    - handle: "GoogleDeepMind"
+      name: "Google DeepMind"
+      profile: "https://twitter.com/GoogleDeepMind"
+
+    - handle: "Google_Robotics"
+      name: "Google Robotics"
+      profile: "https://twitter.com/Google_Robotics"
+
+    - handle: "Figure_robot"
+      name: "Figure AI"
+      profile: "https://twitter.com/Figure_robot"
+
+    - handle: "1x_tech"
+      name: "1X Technologies"
+      profile: "https://twitter.com/1x_tech"
+
+    - handle: "BostonDynamics"
+      name: "Boston Dynamics"
+      profile: "https://twitter.com/BostonDynamics"
+
+    - handle: "UnitreeRobotics"
+      name: "Unitree Robotics"
+      profile: "https://twitter.com/UnitreeRobotics"
+
+    - handle: "AgilityRobotics"
+      name: "Agility Robotics"
+      profile: "https://twitter.com/AgilityRobotics"
+
+    - handle: "huggingface"
+      name: "Hugging Face"
+      profile: "https://twitter.com/huggingface"
+
+    - handle: "NVIDIAAIDev"
+      name: "NVIDIA AI"
+      profile: "https://twitter.com/NVIDIAAIDev"
+
+    - handle: "CovariantAI"
+      name: "Covariant AI"
+      profile: "https://twitter.com/CovariantAI"
+
+# Web search sources (Brave Search)
+web_sources:
+  - name: "arXiv Robotics"
+    url: "https://arxiv.org/list/cs.RO/recent"
+
+  - name: "Semantic Scholar"
+    url: "https://www.semanticscholar.org"
+
+  - name: "Papers With Code - Robotics"
+    url: "https://paperswithcode.com/methods/category/robotics"
+
+  - name: "AI News"
+    url: "https://www.marktechpost.com/category/robotics/"

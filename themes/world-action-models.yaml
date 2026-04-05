@@ -1,0 +1,88 @@
+extends: _base
+
+name: "World Action Models"
+slug: "world-action-models"
+description: >
+  World Models combined with action/policy learning for robotics.
+  Covers predictive world models, latent dynamics, model-based RL,
+  and world models as robot planners or simulators.
+
+sources:
+  arxiv:
+    categories:
+      - "cs.RO"
+      - "cs.LG"
+      - "cs.AI"
+      - "cs.CV"
+    keywords:
+      - "world model robot"
+      - "world action model"
+      - "model-based reinforcement learning robot"
+      - "latent world model"
+      - "predictive model robot"
+      - "video world model robot"
+      - "MBRL robotics"
+      - "Dreamer robotics"
+      - "neural world model"
+      - "action-conditioned prediction"
+      - "robot imagination"
+      - "model predictive control learning"
+      - "Genie world model"
+      - "UniSim world model"
+      - "IRASim"
+    max_results: 60
+    lookback_days: 3
+
+  twitter:
+    keywords:
+      - "world model robot"
+      - "world action model"
+      - "model-based RL robot"
+      - "robot world model"
+    accounts_to_track:
+      - "yilun_du"
+      - "svlevine"
+      - "pabbeel"
+      - "GoogleDeepMind"
+      - "ylecun"
+
+researchers:
+  focus:
+    - "Yilun Du"
+    - "Sergey Levine"
+    - "Danijar Hafner"
+    - "Pieter Abbeel"
+    - "Yann LeCun"
+    - "David Ha"
+
+labs:
+  - name: "Harvard (Yilun Du)"
+    links:
+      website: "https://yilundu.github.io"
+      arxiv_author: "https://arxiv.org/search/?searchtype=author&query=Du+Yilun"
+  - name: "Google DeepMind"
+    links:
+      blog: "https://deepmind.google/discover/blog/"
+  - name: "UC Berkeley RAIL"
+    links:
+      website: "https://rail.eecs.berkeley.edu"
+  - name: "Meta FAIR"
+    links:
+      website: "https://ai.meta.com/research/"
+
+technical_depth: expert
+
+report_sections:
+  - executive_summary
+  - key_papers
+  - architectural_trends
+  - world_model_taxonomy
+  - benchmark_progress
+  - connection_to_action
+  - open_problems
+  - weekly_delta
+
+alert_thresholds:
+  citation_velocity: 10
+  twitter_engagement: 200
+  lab_paper: true
